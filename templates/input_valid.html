@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>WalkEasy</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.0.1/mapbox.css' rel='stylesheet' />
+    <style>
+      body { margin:0; padding:0; }
+      #map { width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0px;
+      bottom: 0px;
+      display: block;}
+      #directions {
+      position: absolute;
+      top: 80px;
+      left: 10px;
+      width: 400px;
+      display: block;}
+      #directions1 {position: absolute;
+      left: 10px;
+      width: 400px;
+      display: block;}
+      starter-template, .container {border: 4px solid; left: 50px; background-color: #FFF;position: absolute;
+      width: 400px;
+      display: block; padding: 20px}
+      #easy_hard_preference {width: 300px;  margin-bottom: 20px;}
+      .btn {
+      margin-bottom: 10px; background-color: #FFF8DC;
+      }
+      h2, h3, p 
+    </style>
+  </head>
+
+  <body>
+
+<br><br>
+
+
+<div id='map'></div>
+
+<script>
+L.mapbox.accessToken = ''; <!-- ENTER MAPBOX API TOKEN HERE -->
+var map = L.mapbox.map('map', 'mapbox.streets')
+.setView([38.89399-1.120018, -77.03659-45.424707], 13);
+</script>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
+
+
+
+
+<div class="container" >
+
+    <div class="starter-template">
+        <h2>Welcome to WalkEasy!</h2>
+        <p class="lead">WalkEasy is a tool to help people find the easiest walking routes between locations in San Francisco.
+        <h3>Enter your desired origin and destination: </h3>
+    </div>
+    
+    <div class = "starter-template" >
+        
+        <form  action="/output" method="GET">
+            <div class="form-group">
+                <label for="start_address">Start Address:</label>
+                <input type="text" id="start_address" name='start_address' placeholder="Fisherman's Wharf, San Francisco, CA">
+                    </div>
+            <div class="form-group">
+                <label for="end_address">End Address:</label>
+                <input type="text" id="end_address" name='end_address' placeholder="Golden Gate Park, San Francisco, CA">
+                    </div>
+            <div class="starter-template">
+                    <p class="lead">Use this slider to optimize your route: </p>
+                    </div>
+            <div class="form-group">
+                <label for="easy_hard_preference">Shortest <----------------------------------> Easiest</label>
+                <input type="range" id="easy_hard_preference" name='easy_hard_preference' min="0" max="100" value="50" />
+                    </div>
+            <div>
+                <button type="submit" class="btn btn-default btn-lg">Find your route !</button>
+            </div>
+            
+        </form>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    
+</div> <!-- /.container-->
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+  </body>
+</html>
